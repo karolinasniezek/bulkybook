@@ -53,6 +53,7 @@ namespace BulkyBookWeb.Controllers
             {
                 return NotFound();
             }
+            // ToDo: move to the service
             var categoryFormDb = _db.Categories.Find(id);
 
             if(categoryFormDb == null)
@@ -85,6 +86,7 @@ namespace BulkyBookWeb.Controllers
             {
                 return NotFound();
             }
+            // ToDo: move to the service
             var categoryFormDb = _db.Categories.Find(id);
 
             if (categoryFormDb == null)
@@ -99,6 +101,7 @@ namespace BulkyBookWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
+            // ToDo: move to the service
             var obj = _db.Categories.Find(id);
             if (obj == null)
             {

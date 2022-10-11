@@ -23,6 +23,8 @@ namespace BulkyBookWeb.Services
             _db.Categories.Add(obj);
             _db.SaveChanges();
         }
+
+        // ToFix
         public void FindCategory(int? id)
         {
             _db.Categories.Find(id);
