@@ -24,10 +24,10 @@ namespace BulkyBookWeb.Services
             _db.SaveChanges();
         }
 
-        // ToFix
-        public void FindCategory(int? id)
+        public Category FindCategory(int? id)
         {
-            _db.Categories.Find(id);
+            var item = _db.Categories.Find(id);
+            return item;
         }
 
         public void UpdateCategory(Category obj)

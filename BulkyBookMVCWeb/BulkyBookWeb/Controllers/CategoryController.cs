@@ -7,11 +7,9 @@ namespace BulkyBookWeb.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _db;
         private readonly CategoryService _categoryService;
-        public CategoryController(ApplicationDbContext db, CategoryService categoryService)
+        public CategoryController(CategoryService categoryService)
         {
-            _db = db;
             _categoryService = categoryService;
         }
 
@@ -54,7 +52,7 @@ namespace BulkyBookWeb.Controllers
                 return NotFound();
             }
             // ToDo: move to the service
-            var categoryFormDb = _db.Categories.Find(id);
+            var categoryFormDb = _categoryService.FindCategory(id);
 
             if(categoryFormDb == null)
             {
@@ -86,8 +84,7 @@ namespace BulkyBookWeb.Controllers
             {
                 return NotFound();
             }
-            // ToDo: move to the service
-            var categoryFormDb = _db.Categories.Find(id);
+            var categoryFormDb = _categoryService.FindCategory(id);
 
             if (categoryFormDb == null)
             {
@@ -101,8 +98,7 @@ namespace BulkyBookWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            // ToDo: move to the service
-            var obj = _db.Categories.Find(id);
+            var obj = _categoryService.FindCategory(id);
             if (obj == null)
             {
                 return NotFound();
