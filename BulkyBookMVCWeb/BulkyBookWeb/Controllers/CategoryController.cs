@@ -51,7 +51,6 @@ namespace BulkyBookWeb.Controllers
             {
                 return NotFound();
             }
-            // ToDo: move to the service
             var categoryFormDb = _categoryService.FindCategory(id);
 
             if(categoryFormDb == null)
